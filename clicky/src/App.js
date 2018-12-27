@@ -41,11 +41,31 @@ let data = [
 {
   avatar_url:"https://images3.alphacoders.com/633/thumb-1920-633240.jpg"
 }
-]
+];
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
 class App extends Component {
   state = {counter:0,
-  cor: "Click an image to get started!"};
+  cor: "Click an image to get started!",
+  clicks: 0};
   incrementCounter = () => {
    this.setState((prevState) => ({
      counter: prevState.counter + 1
@@ -54,6 +74,14 @@ class App extends Component {
      cor: prevState.cor = "correct"
 
    }));
+
+   if (this.state.counter >= 12){
+    this.setState((prevState) => ({
+    counter: prevState.counter = 0
+    }));
+
+          }
+   shuffle(data);
  };
 
   render() {
@@ -61,7 +89,7 @@ class App extends Component {
       <body>
         <Header  counter={this.state.counter} cor={this.state.cor}/>
         <Jumbotron />
-        <Cardlist cards={data} onClickFunction={this.incrementCounter}/>
+        <Cardlist cards={data} onClickFunction={this.incrementCounter} />
         <Footer />
       </body>
 

@@ -25,7 +25,7 @@ class Card extends React.Component {
 
    render(props) {
     return(  
-                <div style={{margin: "1em"}}  onClick = {this.props.onClick}   >
+                <div style={{margin: "1em"}}  onClick = {() =>this.props.onClick(this.props.id)}   >
                 <img width="300" src={this.props.avatar_url}>
                 </img>
                 </div>

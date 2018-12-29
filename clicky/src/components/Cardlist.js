@@ -7,7 +7,7 @@ const Cardlist = (props) => {
     return(
 <div className="container">
 <div className= "row">
-            {props.cards.map(card => <Card {...card} onClick={props.onClickFunction} />)}
+            {props.cards.map(card => <Card {...card} onClick={props.selectedCard} />)}
             
         </div>
 </div>

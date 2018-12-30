@@ -11,7 +11,7 @@ class Header extends React.Component {
                    Clicky Game
        </p>
                <p className="navbar-brand">{this.props.cor}</p>
-               <p className="navbar-brand">{this.props.counter}</p>
+               <p className="navbar-brand">points: {this.props.counter}</p>
            </nav>
      );
    }

@@ -115,7 +115,15 @@ else{
     ///end winning block
   }
   else{
-    alert("you lose!")
+    alert("You guessed incorrectly!!")
+    this.setState((prevState) =>({
+      cor: prevState.cor = "You guessed incorrectly!!"
+ 
+    }));
+    this.setState((prevState) => ({
+      counter: prevState.counter = 0,
+      clicks: prevState.clicks = []
+      }));
   }
   shuffle(data);
  };
